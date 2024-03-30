@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileSignUp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="136dp"
+        android:src="@drawable/profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/plusSignUp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/plus"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="2dp"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintVertical_bias="0.88"
+        app:layout_constraintBottom_toBottomOf="@+id/profileSignUp"
+        app:layout_constraintEnd_toEndOf="@+id/profileSignUp"
+        app:layout_constraintStart_toStartOf="@+id/profileSignUp"
+        app:layout_constraintTop_toTopOf="@+id/profileSignUp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="32dp"
+        app:boxStrokeColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileSignUp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name/ Username" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:boxStrokeColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/textInput1"
+        app:layout_constraintStart_toStartOf="@+id/textInput1"
+        app:layout_constraintTop_toBottomOf="@+id/textInput1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:boxStrokeColor="@color/black"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="@+id/textInput2"
+        app:layout_constraintStart_toStartOf="@+id/textInput2"
+        app:layout_constraintTop_toBottomOf="@+id/textInput2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textWebPassword"
+            android:hint="Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Register"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:background="@drawable/blue_button"
+        app:layout_constraintEnd_toEndOf="@+id/textInput3"
+        app:layout_constraintStart_toStartOf="@+id/textInput3"
+        app:layout_constraintTop_toBottomOf="@+id/textInput3" />
+
+    <TextView
+        android:id="@+id/alreadySignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textColor="@color/blue"
+        android:fontFamily="@font/yeonsung_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/signUpBtn"
+        app:layout_constraintStart_toStartOf="@+id/signUpBtn"
+        app:layout_constraintTop_toBottomOf="@+id/signUpBtn"
+        app:layout_constraintVertical_bias="0.58000004" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
