@@ -11,6 +11,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.instagramclone.Models.User
 import com.example.instagramclone.databinding.ActivitySignUpBinding
 import com.example.instagramclone.utils.USER_NODE
+import com.example.instagramclone.utils.USER_PROFILE_FOLDER
+import com.example.instagramclone.utils.uploadImage
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -21,10 +23,18 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
     lateinit var user: User
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent()){
+
         uri->
 
         uri?.let{
+            uploadImage(uri, USER_PROFILE_FOLDER){
+                if(it == null){
 
+                }else{
+                    user.image = it
+                    binding.profileSignUp.setImageURI(uri)
+                }
+            }
         }
     }
 
@@ -52,6 +62,12 @@ class SignUpActivity : AppCompatActivity() {
         val textInputName = binding.textInput1.editText
         val textInputEmail = binding.textInput2.editText
         val textInputPassword = binding.textInput3.editText
+
+        val addImage = binding.plusSignUp
+
+        addImage.setOnClickListener {
+            launcher.launch("image/*")
+        }
 
         signToLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -83,6 +99,9 @@ class SignUpActivity : AppCompatActivity() {
                         Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user)
                             .addOnSuccessListener {
                                 Toast.makeText(this, "SignUp Successfull", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this, LoginActivity::class.java)
+                                startActivity(intent)
+                                finish()
                             }
                     }else{
 
