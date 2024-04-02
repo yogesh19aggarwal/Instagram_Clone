@@ -7,9 +7,9 @@
     <item android:title="Search"
         android:icon="@drawable/search"
         android:id="@+id/searchFragment"/>
-    <item android:title="Post"
+    <item android:title="Add"
         android:icon="@drawable/post"
-        android:id="@+id/postFragment"/>
+        android:id="@+id/addFragment"/>
     <item android:title="Reel"
         android:icon="@drawable/reel"
         android:id="@+id/reelFragment"/>
