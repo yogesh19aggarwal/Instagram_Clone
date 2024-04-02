@@ -23,9 +23,7 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
     lateinit var user: User
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent()){
-
         uri->
-
         uri?.let{
             uploadImage(uri, USER_PROFILE_FOLDER){
                 if(it == null){
@@ -72,6 +70,7 @@ class SignUpActivity : AppCompatActivity() {
         signToLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         val signUpbtn = binding.signUpBtn
@@ -94,7 +93,7 @@ class SignUpActivity : AppCompatActivity() {
 
                         user.name = textInputName?.text.toString()
                         user.password = textInputPassword?.text.toString()
-                        user.emails = textInputEmail?.text.toString()
+                        user.email = textInputEmail?.text.toString()
 
                         Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user)
                             .addOnSuccessListener {
@@ -110,7 +109,6 @@ class SignUpActivity : AppCompatActivity() {
                     }
                 }
             }
-
         }
     }
 }
