@@ -28,7 +28,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
 
         binding.editProfile.setOnClickListener {
             val intent = Intent(activity, SignUpActivity::class.java)

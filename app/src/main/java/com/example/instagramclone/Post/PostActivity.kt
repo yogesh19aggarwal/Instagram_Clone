@@ -1,16 +1,22 @@
 package com.example.instagramclone.Post
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.instagramclone.MainActivity
 import com.example.instagramclone.Models.Post
 import com.example.instagramclone.R
 import com.example.instagramclone.databinding.ActivityPostBinding
+import com.example.instagramclone.utils.POST
 import com.example.instagramclone.utils.POST_FOLDER
 import com.example.instagramclone.utils.uploadImage
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.firestore
 
 
 class PostActivity : AppCompatActivity() {
@@ -61,7 +67,18 @@ class PostActivity : AppCompatActivity() {
 
         binding.postBtn.setOnClickListener {
             val post: Post = Post(imageUrl!! ,binding.caption.text.toString())
-        }
 
+            Firebase.firestore.collection(POST).document().set(post)
+                .addOnSuccessListener {
+                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
+                        startActivity(Intent(this@PostActivity, MainActivity::class.java))
+                        finish()
+                    }
+                }
+        }
+        binding.cancelBtn.setOnClickListener {
+            startActivity(Intent(this@PostActivity, MainActivity::class.java))
+            finish()
+        }
     }
 }

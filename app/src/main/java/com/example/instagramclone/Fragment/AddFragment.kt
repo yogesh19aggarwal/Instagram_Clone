@@ -29,11 +29,13 @@ class AddFragment : BottomSheetDialogFragment() {
         binding.postAdd.setOnClickListener {
             val intent = Intent(requireContext(), PostActivity::class.java)
             activity?.startActivity(intent)
+            activity?.finish()
         }
 
         binding.reelAdd.setOnClickListener {
             val intent = Intent(requireContext(), ReelActivity::class.java)
             activity?.startActivity(intent)
+            activity?.finish()
         }
 
         return binding.root
