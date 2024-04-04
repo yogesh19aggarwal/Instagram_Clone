@@ -15,7 +15,7 @@
         android:name="com.example.instagramclone.Fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
-    <fragment
+    <dialog
         android:id="@+id/addFragment"
         android:name="com.example.instagramclone.Fragment.AddFragment"
         android:label="fragment_add"
