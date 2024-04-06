@@ -9,6 +9,7 @@
         android:id="@+id/post_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_margin="5dp"
         tools:layout_editor_absoluteX="51dp"
         tools:layout_editor_absoluteY="47dp"
         tools:srcCompat="@tools:sample/avatars" />

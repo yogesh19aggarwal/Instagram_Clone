@@ -58,6 +58,7 @@ class PostActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         toolbar.setNavigationOnClickListener {
+            startActivity(Intent(this@PostActivity, MainActivity::class.java))
             finish()
         }
 
