@@ -74,6 +74,9 @@ class SignUpActivity : AppCompatActivity() {
                     textInputEmail?.setText(user.email)
                     textInputPassword?.setText(user.password)
                 }
+
+                binding.alreadySignUp.text = "Logout"
+                binding.alreadySignUp.textSize = 25F
             }
         }
 

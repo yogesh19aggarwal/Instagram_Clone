@@ -60,8 +60,10 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>): Recycler
             holder.binding.like.setOnClickListener {
                 if(flag){
                     holder.binding.like.setImageResource(R.drawable.red_like)
+                    flag = false
                 }else{
                     holder.binding.like.setImageResource(R.drawable.like)
+                    flag = true
                 }
             }
 
@@ -71,7 +73,7 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>): Recycler
                 intent.putExtra(Intent.EXTRA_TEXT, postList[position].postUrl)
                 context.startActivity(intent)
             }
-            
+
             holder.binding.save.setOnClickListener {
 
             }
