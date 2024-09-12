@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:text="Already have an account?"
         android:textColor="@color/blue"
-        android:fontFamily="@font/yeonsung_regular"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/signUpBtn"
         app:layout_constraintStart_toStartOf="@+id/signUpBtn"
