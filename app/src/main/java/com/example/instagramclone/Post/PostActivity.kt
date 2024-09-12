@@ -28,9 +28,11 @@ class PostActivity : AppCompatActivity() {
 
     private var imageUrl: String? = null
 
-    private var launcher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+    private var launcher = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        uri ->
         uri?.let {
-            uploadImage(uri, POST_FOLDER) { url ->
+            uploadImage(uri, POST_FOLDER) {
+                url ->
                 if (url != null) {
                     binding.selectImage.setImageURI(uri)
                     imageUrl = url
